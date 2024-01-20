@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+</head>
+<body>
+  
+  <div class="auth-container container">
+    
+    <h2 class="text-center my-3">Sign up</h2>
+    <form action="" id="sign-up-form">
+      
+      <div class="mb-3">
+        <input type="text" class="form-control" id="fullname" placeholder="Enter fullname...">
+      </div>
+      <div class="mb-3">
+        <p><label for="date-of-birth">Date Of Birth</label></p>
+        <input type="date"  class="form-control" id="date-of-birth">
+      </div>
+      <div class="mb-3">
+        <input type="email" class="form-control" id="email" placeholder="Enter email...">
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" id="password" placeholder="Enter password...">
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" id="password-repeat" placeholder="Enter password repeat...">
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="form-control btn btn-primary" id="sign-up-btn">Submit</button>
+      </div>
+      
+    </form>
+    
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore-compat.js"></script>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.7.0/firebase-auth-compat.min.js"
+  integrity="sha512-u4HjRw6xinzQGDRP1QwHIc/SZRdACWhJ3lFZW6xBD9/XBQFXbCYQMSlCJUa2KyZ27Nef6gyY3TO0ToCoAtqDCg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+
+  <script src="./src/js/config.js"></script>
+  
+  <script src="./src/js/sign-up.js"></script>
+</body>
+</html>

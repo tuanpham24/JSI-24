@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post manager</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form id="post-form">
+        <div class="form-group">
+          <input type="text" id="input-title" placeholder="Enter title..." />
+        </div>
+        <div class="form-group">
+          <textarea
+            name=""
+            id="input-description"
+            placeholder="Enter description..."
+            rows="10"
+          ></textarea>
+        </div>
+
+        <button type="submit">Add</button>
+      </form>
+
+
+      <div class="post-container">
+        
+      </div>
+    </div>
+
+    <!-- Cloud Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  
+    <!-- Add configs Firebase -->
+    <script src="./src/js/configs.js"></script>
+
+    <!-- post -->
+    <script src="./src/js/post.js"></script>
+  </body>
+</html>
