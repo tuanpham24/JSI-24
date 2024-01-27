@@ -14,7 +14,7 @@ const handleSignUp = (event) => {
   let password = passwordInput.value;
   let passwordRepeat = passwordRepeatInput.value;
 
-  // 
+  // Validate user data
   if (!fullname || !dateOfBirth || !email || !password || !passwordRepeat) {
     alert("Please fill all fields");
     return;

@@ -1,35 +1,41 @@
-const emailInput = document.querySelector('#email');
-const passwordInput = document.querySelector('#password');
-const signInForm = document.querySelector('#sign-in-form');
+const emailInput = document.querySelector("#email");
+const passwordInput = document.querySelector("#password");
+const signInForm = document.querySelector("#sign-in-form");
 
 const handleSignIn = (event) => {
-  event.preventDefault();
+  event.preventDefault()
+  let email = emailInput.value;
+  let password = passwordInput.value;
 
-  const email = emailInput.value;
-  const password = passwordInput.value;
-
-  if(!email || !password) {
-    alert('Please fill all fields');
+  // Validate user data
+  if (!email || !password ) {
+    alert("Please fill all fields");
     return;
-  }
+    }
+
+  console.log(email, password);
 
   firebase.auth().signInWithEmailAndPassword(email, password)
   .then((userCredential) => {
     // Signed in
-    var user = userCredential.user;
+    let user = userCredential.user;
     // ...
 
-    // get displayName here
-    console.log(user.displayName);
     console.log(user);
+    localStorage.setItem("user-display-name", JSON.stringify(user.displayName))
+
+    alert("Signin successfully! Click 'ok' to continue.");
   })
   .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
+    let errorCode = error.code;
+    let errorMessage = error.message;
+
+    console.log(errorMessage);
+    alert("Email or passowrd incorrect. Try again!")
   });
 
 }
 
-signInForm.addEventListener('submit', event => {
+signInForm.addEventListener("submit", (event) => {
   handleSignIn(event)
 })
