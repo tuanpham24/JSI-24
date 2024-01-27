@@ -6,7 +6,6 @@ const passwordInput = document.querySelector('#password');
 const passwordRepeatInput = document.querySelector('#password-repeat');
 const signUpBtnInput = document.querySelector('#sign-up-btn');
 
-
 const handleSignUp = (event) => {
   event.preventDefault()
   let fullname = fullnameInput.value;
@@ -14,29 +13,51 @@ const handleSignUp = (event) => {
   let email = emailInput.value;
   let password = passwordInput.value;
   let passwordRepeat = passwordRepeatInput.value;
-  let signUpBtn = signUpBtnInput.value;
 
-  const newUser = (
-    fullname,
-    dateOfBirth,
-    email,
-    password,
-    passwordRepeat,
-    signUpBtn
-  );
+  // 
+  if (!fullname || !dateOfBirth || !email || !password || !passwordRepeat) {
+    alert("Please fill all fields");
+    return;
+  }
 
-  console.log(email);
-  console.log(password);
+  if (password != passwordRepeat) {
+    alert("Password is not match");
+    return;
+  }
 
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-      // Signed in
       let user = userCredential.user;
-      console.log(user);
-    })
 
+      // Update the user's display name
+      user.updateProfile({
+        displayName: fullname
+      }).then(() => {
+        // Display name updated successfully
+        console.log('Display name updated successfully:', user.displayName);
+      }).catch((error) => {
+        console.error('Error updating display name:', error.message);
+      });
+
+      console.log(user);
+
+      db.collection("users")
+        .add({
+          fullname,
+          dateOfBirth,
+          email,
+          password
+        })
+        .then((docRef) => {
+          console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+
+    })
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
