@@ -8,6 +8,7 @@ const signUpBtnInput = document.querySelector('#sign-up-btn');
 
 const handleSignUp = (event) => {
   event.preventDefault()
+
   let fullname = fullnameInput.value;
   let dateOfBirth = dateOfBirthInput.value;
   let email = emailInput.value;
@@ -30,14 +31,15 @@ const handleSignUp = (event) => {
     .createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
       let user = userCredential.user;
-
+      
+      alert("Signup successfully!")
       // Update the user's display name
       user.updateProfile({
         displayName: fullname
       }).then(() => {
         // Display name updated successfully
         console.log('Display name updated successfully:', user.displayName);
-      }).catch((error) => {
+        alert()
         console.error('Error updating display name:', error.message);
       });
 
@@ -63,6 +65,8 @@ const handleSignUp = (event) => {
       let errorMessage = error.message;
       console.log(errorCode);
       console.log(errorMessage);
+
+      alert(errorMessage)
       // ..
     });
   
